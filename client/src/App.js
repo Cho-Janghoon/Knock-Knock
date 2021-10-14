@@ -36,16 +36,12 @@ function App() {
 
 
   const handleAccessToken = (accessT) => {
-    console.log('accccccceessstyttttttttt',accessT)
+  
     setAccessToken(accessT) // 로그인하면서 받은 엑세스 토큰
-
-
-
-    
 
   }
   
-  const handleWriteInfo = (accessT) => {
+  const handleWriteInfo = () => {
     axios.get("https://localhost:4000/user/mylist", {
       headers: {
         authorization: `${accessToken}`,
@@ -74,16 +70,12 @@ function App() {
       withCredentials: true
     })
     .then((res) => {
-  
 
-      console.log('22222222222222',res)
-       // 객체 키값이 없기에 그냥 바로 res 객체
       history.push('/')
       console.log("========================useinfostates: ", userinfo)
 
     })
   }
-  
 
   const handleLogout = () => {
     axios.post("https://localhost:4000/signout")
@@ -135,7 +127,6 @@ function App() {
         <h1 className="App-name" ><img className="Knock_logo1" src="https://i.ibb.co/XLgjjZ8/Knock-Knock-logo.png" alt="My Image"/></h1>
         </Link>
       
-
         {isLogin ===false ? 
         <Tabmodal openModalFunc={openModalFunc} openModalFunc2={openModalFunc2}/> :
          <Tabmodal2/>}
@@ -155,22 +146,14 @@ function App() {
     
     <Switch>
     <div className='map'>
-
-
-     {/* <Location openModalFunc3={openModalFunc3}/> */}
+     <Location openModalFunc3={openModalFunc3}/>
      {/* <SignUp/>  */}
      {/* <Location/> */}
      <Route path='/mypage'  >
        <MyPage handleLogout={handleLogout} userinfo={userinfo} handleWriteInfo={handleWriteInfo} />
      </Route>
      <Route path='/mylist' >
-       <MyList writeMyComment={writeMyComment} accessToken={accessToken} />
-     </Route>
-    
-
-
-     <Route path='/mylist'>
-       <MyList isMyList={isMyList} />
+       <MyList isMyList={isMyList} accessToken={accessToken} />
      </Route>
     </div>
     </Switch>

@@ -33,14 +33,9 @@ module.exports = async (req, res) => {
         const myToilet = await db.toilet.findAll({
           where: { user_id: Number(tokenData.id) }
         })
+        
 
-        const myToilet1 = await db.toilet.findOne({
-          where: { user_id: 1 }
-        })
-
-      
-
-
+        // console.log()
         // console.log(myComment)
         // console.log(myToilet)
         // console.log(tokenData)
