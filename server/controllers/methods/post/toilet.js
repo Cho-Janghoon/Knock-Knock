@@ -62,6 +62,7 @@ module.exports = async (req, res) => {
               //데이터베이스에 넣을 데이터
               const inputData = {
                 name: name,
+                user_id :tokenData.id,
                 address: address,
                 accessible_toilet_male: true,
                 ccessible_toilet_female: true,

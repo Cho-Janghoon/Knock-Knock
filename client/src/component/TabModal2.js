@@ -16,7 +16,6 @@ function TabModal2( {handleLogout} ){
             <Link to="/mypage">
             <div className='tablist'>마이페이지</div>
             </Link>
-            
             <div className='tablist' onClick={handleLogout}>로그아웃</div>
             </div >
          

@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
         name:decoded.name,
         password:decoded.password
       }
-
+    console.log('tokendata',tokenData)
       const userData = await db.user.findOne({
         where: tokenData
       })
@@ -35,13 +35,21 @@ module.exports = async (req, res) => {
         })
         
 
-        // console.log()
+        // const myToilet1 = await db.toilet.findOne({
+        //   where: { user_id: 1 }
+        // })
+
+      
+        console.log(db.toilet)
+        console.log(db.comment)
         // console.log(myComment)
         // console.log(myToilet)
         // console.log(tokenData)
 
         res.json({
-          myComment: myComment,
+
+        //  myComment: myComment,
+
           myToilet: myToilet,
           message: "ok"
         })

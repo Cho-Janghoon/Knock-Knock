@@ -27,7 +27,7 @@ export default function AddToilet({ openModalFunc3,accessToken }) {
             axios
             .post(
               'https://localhost:4000/toilet',{
-                name:toiletinfo.name, address:toiletinfo.address
+                name:toiletinfo.name, address:toiletinfo.address,
               },
               {
                 headers: {
